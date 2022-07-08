@@ -3,11 +3,11 @@ import csv
 import time
 
 s = HTMLSession()
-url = 'https://japanhomecentre.com/shop/'
+url = 'https://example.com/shop'
 
 def get_links(url):
     r = s.get(url)
-    items = r.html.find('div.product-small.box')
+    items = r.html.find('li.product')
     links = []
     for item in items:
         links.append(item.find('a', first=True).attrs['href'])
@@ -39,4 +39,6 @@ for link in links:
 with open('version1.csv', 'w', encoding='utf8', newline='') as f:
     fc = csv.DictWriter(f, fieldnames=results[0].keys(),)
     fc.writeheader()
-    fc.writerows(results)%
+    fc.writerows(results)
+
+print('Fin.')
