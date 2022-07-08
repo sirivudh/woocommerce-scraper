@@ -3,7 +3,7 @@ import csv
 import time
 
 s = HTMLSession()
-url = 'https://barefootbuttons.com/product-category/version-1/'
+url = 'https://japanhomecentre.com/shop/'
 
 def get_links(url):
     r = s.get(url)
